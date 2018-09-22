@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  joburl: MyText
+  applieddate: 2018-09-21
+  company: MyText
+  stack: MyText
+  status: MyText
+  address: MyText
+
+two:
+  title: MyText
+  joburl: MyText
+  applieddate: 2018-09-21
+  company: MyText
+  stack: MyText
+  status: MyText
+  address: MyText
