@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobs</h1>
-
-<%= react_component 'GreetUser', name: 'Sam' %>
+<%= react_component 'Main' %>
 
 
 <table>
@@ -29,9 +27,11 @@
         <td><%= job.stack %></td>
         <td><%= job.status %></td>
         <td><%= job.address %></td>
+          <% if false %>
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +39,3 @@
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>

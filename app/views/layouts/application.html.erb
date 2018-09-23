@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JobNotes</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>JobNotes</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_pack_tag 'bootstrap' %>
+        <%= stylesheet_pack_tag 'react_table' %>
+        <!-- Following will make the react components availabe to our layout -->
+        <%= javascript_pack_tag 'application' %>
+    </head>
 
-     <!-- Following will make the react components availabe to our layout -->
-    <%= javascript_pack_tag 'application' %>
-  </head>
-
-  <body>
+    <body>
     <%= yield %>
-  </body>
+    </body>
 </html>
