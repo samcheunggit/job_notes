@@ -2463,6 +2463,10 @@ globule@^1.0.0:
     lodash "~4.17.10"
     minimatch "~3.0.2"
 
+google-maps-react@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/google-maps-react/-/google-maps-react-2.0.2.tgz#e03fbba032fe570fb38744bf9cd10b946c591cae"
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
@@ -4748,6 +4752,13 @@ react-lifecycles-compat@^3.0.4:
 react-notification-alert@^0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/react-notification-alert/-/react-notification-alert-0.0.8.tgz#35636885ee70740aa54c12567d3bdf38d7d2a948"
+
+react-places-autocomplete@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/react-places-autocomplete/-/react-places-autocomplete-7.2.0.tgz#85319ff42a1e3e0d2b02cc40471c1e2911e6dfbe"
+  dependencies:
+    lodash.debounce "^4.0.8"
+    prop-types "^15.5.8"
 
 react-popper@^0.10.4:
   version "0.10.4"

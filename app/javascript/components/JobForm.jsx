@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import * as generalHelper from '../helpers/GeneralHelper.js';
 import { AvForm, AvField, AvGroup, AvInput, AvFeedback} from 'availity-reactstrap-validation';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { GoogleAutoComplete } from './GoogleAutoComplete.jsx';
 
 class JobForm extends React.Component {
     constructor(props) {
@@ -14,11 +17,26 @@ class JobForm extends React.Component {
             stack: '',
             status: '',
             joburl: '',
-            address: ''
+            address: '',
+            latitude: '',
+            longitude: ''
         };
 
+        this.resetField = false;
         this.handleChange = this.handleChange.bind(this);
         this.handleValidSubmit = this.handleValidSubmit.bind(this);
+        this.fetchLatLngByAddress = this.fetchLatLngByAddress.bind(this);
+      }
+
+      fetchLatLngByAddress(address){
+        geocodeByAddress(address)
+              .then(results => getLatLng(results[0]))
+              .then(latLng => {
+                this.setState({ address: address, latitude: latLng.lat, longitude: latLng.lng });
+              })
+              .catch(error => {
+                console.error('Error', error);
+              });
       }
 
       handleChange(event) {
@@ -28,11 +46,12 @@ class JobForm extends React.Component {
         this.setState({
           [name]: value
         });
+
+        this.resetField = false;
       }
 
       handleInvalidSubmit(event) {
         console.log("invalid submit");
-        event.preventDefault();
         }
 
       handleValidSubmit(event) {
@@ -43,7 +62,9 @@ class JobForm extends React.Component {
             stack: this.state.stack,
             status: this.state.status,
             joburl: this.state.joburl,
-            address: this.state.address
+            address: this.state.address,
+            latitude: this.state.latitude,
+            longitude: this.state.longitude
         }
 
         fetch('/api/jobs', {
@@ -58,6 +79,7 @@ class JobForm extends React.Component {
         })
 
         this.form && this.form.reset();
+        this.resetField = true;
       }
 
       render() {
@@ -114,11 +136,10 @@ class JobForm extends React.Component {
                          </AvGroup>
                     </Col>
                     <Col xs="12" sm="12" md="12" lg="12" xl="12">
-                        <AvGroup>
-                          <Label for="address">Address</Label>
-                          <AvInput type="text" name="address" id="address" onChange={this.handleChange} required/>
-                          <AvFeedback>This field is required!</AvFeedback>
-                        </AvGroup>
+                        <FormGroup>
+                          <Label>Address</Label>
+                          <GoogleAutoComplete callbackFromAddressForm={this.fetchLatLngByAddress} reset={this.resetField} />
+                        </FormGroup>
                     </Col>
                     <Col xs="12" sm="12" md="12" lg="12" xl="12">
                         <Button color="success" size="lg" block>Save</Button>

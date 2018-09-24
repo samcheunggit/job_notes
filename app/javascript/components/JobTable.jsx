@@ -6,7 +6,7 @@ import * as generalHelper from '../helpers/GeneralHelper.js';
 import { FaTimes } from 'react-icons/fa';
 import _ from 'lodash';
 import NotificationAlert from 'react-notification-alert';
-
+import {MapContainer} from './MapContainer.jsx';
 
 class JobTable extends React.Component {
     constructor(props) {
@@ -59,6 +59,7 @@ class JobTable extends React.Component {
                       Cell: row => (
                         <span onClick={(e) => this.deleteJob(row.original.id, e)}><FaTimes /></span>
                       ),
+                      maxWidth: 30
                     },
                     {
                       Header: "Title",
@@ -88,7 +89,18 @@ class JobTable extends React.Component {
                       Header: "Status",
                       accessor: "status",
                       Cell: row => (
-                            <label>{generalHelper.getStatusLabel(row.original.status)}</label>
+
+                            <span>
+                                <span style={{
+                                  color: row.value === 'reject' ? '#ff2e00'
+                                    : row.value === 'offer' ? '#57d500'
+                                    : '#ffbf00',
+                                  transition: 'all .3s ease'
+                                }}>
+                                  &#x25cf;
+                                </span>&nbsp;&nbsp;
+                                <label>{generalHelper.getStatusLabel(row.original.status)}</label>
+                            </span>
                         ),
                       Footer: () =>
                         <div style={{ textAlign: "center" }}>Status</div>
@@ -134,10 +146,16 @@ class JobTable extends React.Component {
                   ]
                 }
               ]}
-              defaultPageSize={10}
+              defaultPageSize={20}
               filterable
               className="-striped -highlight"
-              SubComponent={(row) => <div id="googleMap" style={{ width: 100 + '%', height:400+'px' }}>{row.original.address}</div>}
+              SubComponent={(row) => <div id="googleMap" style={{ width: 100 + '%', height:400+'px' }}>
+                  <MapContainer google={this.props.googleProps}
+                  address={row.original.address}
+                  latitude={row.original.latitude}
+                  longitude={row.original.longitude}/>
+              </div>
+              }
             />
         </div>
         );

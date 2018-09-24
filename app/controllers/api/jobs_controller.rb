@@ -29,6 +29,6 @@ class Api::JobsController < ApplicationController
 
     # only require job params and only permit defined keys to pass to model
     def job_params
-      params.require(:job).permit(:title, :joburl, :applieddate, :company, :stack, :status, :address)
+      params.require(:job).permit(:title, :joburl, :applieddate, :company, :stack, :status, :address, :latitude, :longitude)
     end
 end
