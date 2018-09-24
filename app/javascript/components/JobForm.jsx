@@ -15,7 +15,7 @@ class JobForm extends React.Component {
             company: '',
             appliedDate: '',
             stack: '',
-            status: '',
+            status: 'applied',
             joburl: '',
             address: '',
             latitude: '',
@@ -67,6 +67,11 @@ class JobForm extends React.Component {
             longitude: this.state.longitude
         }
 
+        console.log("for mobile address: "+address);
+        console.log("latitude: "+latitude);
+        console.log("longitude: "+longitude);
+
+
         fetch('/api/jobs', {
           method: 'POST',
           headers: {
@@ -89,6 +94,7 @@ class JobForm extends React.Component {
         );
 
         return (
+            <div style={{paddingRight: 30+"px", paddingLeft: 30+"px"}}>
             <AvForm onValidSubmit={this.handleValidSubmit} onInvalidSubmit={this.handleInvalidSubmit} ref={c => (this.form = c)}>
                 <Row>
                   <Col xs="12" sm="12" md="12" lg="12" xl="12">
@@ -122,7 +128,7 @@ class JobForm extends React.Component {
                   <Col xs="12" sm="12" md="12" lg="12" xl="12">
                     <AvGroup>
                        <Label for="status">Status</Label>
-                       <AvInput type="select" name="status" id="status" onChange={this.handleChange} required>
+                       <AvInput type="select" name="status" id="status" value={this.state.status} onChange={this.handleChange} required>
                         {statusOptions}
                        </AvInput>
                        <AvFeedback>This field is required!</AvFeedback>
@@ -146,6 +152,7 @@ class JobForm extends React.Component {
                     </Col>
                 </Row>
               </AvForm>
+              </div>
         );
       }
 }

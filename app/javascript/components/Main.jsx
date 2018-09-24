@@ -59,7 +59,6 @@ class Main extends React.Component {
     render(){
         return(
             <div>
-                <Container className="Main">
                     <Jumbotron>
                     <h1 style={{fontFamily: "Verdana"}}>Notes for job searching</h1>
                     </Jumbotron>
@@ -74,8 +73,6 @@ class Main extends React.Component {
                     <br/>
                     <JobTable jobsList={this.state.jobs} googleProps={this.googleProps} updateJobListFromDelete={this.checkAndUpdateJobList} />
                     <br/>
-
-                </Container>
             </div>
         )
     }
