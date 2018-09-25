@@ -14,6 +14,8 @@ class JobTable extends React.Component {
         this.state = {
               jobs: this.props.jobsList
         };
+        this.editableStatus = this.editableStatus.bind(this);
+        this.saveStatus = this.saveStatus.bind(this);
       }
 
     componentDidUpdate(prevProps) {
@@ -37,12 +39,30 @@ class JobTable extends React.Component {
             event.preventDefault();
         };
 
-        toggleAlert(type, message){
-            var options = generalHelper.options;
-            options.message = (<div>{message}</div>);
-            options.type = type
-            this.refs.notify.notificationAlert(options);
-            }
+    toggleAlert(type, message){
+        var options = generalHelper.options;
+        options.message = (<div>{message}</div>);
+        options.type = type
+        this.refs.notify.notificationAlert(options);
+    }
+
+    saveStatus(){
+        console.log("save status called");
+    }
+
+    editableStatus(cellInfo) {
+
+//        this.setState({ editJobStatus: cellInfo.original.status, editJobId: cellInfo.original.id });
+        const statusOptions = generalHelper.statusList.map((option) =>
+            <option value={option.value} key={option.value + option.label}>{option.label}</option>,
+        );
+
+        return (
+            <Input type="select" name="status" id="editableStatus" value={cellInfo.original.status} onChange={this.saveStatus}>
+                                    {statusOptions}
+                                   </Input>
+        );
+      }
 
     render() {
 
@@ -88,7 +108,8 @@ class JobTable extends React.Component {
                     {
                       Header: "Status",
                       accessor: "status",
-                      Cell: row => (
+                      Cell: this.editableStatus
+                      /*Cell: row => (
 
                             <span>
                                 <span style={{
@@ -101,7 +122,7 @@ class JobTable extends React.Component {
                                 </span>&nbsp;&nbsp;
                                 <label>{generalHelper.getStatusLabel(row.original.status)}</label>
                             </span>
-                        ),
+                        ),*/,
                       Footer: () =>
                         <div style={{ textAlign: "center" }}>Status</div>
                     },

@@ -67,11 +67,6 @@ class JobForm extends React.Component {
             longitude: this.state.longitude
         }
 
-        console.log("for mobile address: "+this.state.address);
-        console.log("latitude: "+this.state.latitude);
-        console.log("longitude: "+this.state.longitude);
-
-
         fetch('/api/jobs', {
           method: 'POST',
           headers: {

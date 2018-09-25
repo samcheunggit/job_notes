@@ -4,6 +4,7 @@
     <list default="true" id="a8dbd915-87c7-4712-9f72-7a6b8acf4799" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/components/JobForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/JobForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/components/JobTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/JobTable.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +16,11 @@
     <session id="2039810697">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="10" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -56,7 +57,7 @@
           <entry key="css" value="1" />
           <entry key="erb" value="181" />
           <entry key="js" value="1078" />
-          <entry key="jsx" value="5991" />
+          <entry key="jsx" value="6454" />
           <entry key="rb" value="473" />
           <entry key="scss" value="3" />
           <entry key="yml" value="42" />
@@ -67,7 +68,7 @@
           <entry key="CSS" value="4" />
           <entry key="Groovy" value="7" />
           <entry key="HTML" value="181" />
-          <entry key="JavaScript" value="7067" />
+          <entry key="JavaScript" value="7530" />
           <entry key="PLAIN_TEXT" value="523" />
           <entry key="YAML" value="15" />
         </counts>
@@ -79,11 +80,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/javascript/components/JobForm.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+            <state relative-caret-position="162">
+              <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="88" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -91,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/javascript/components/MapContainer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="782">
               <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
             </state>
           </provider>
@@ -100,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/javascript/components/Main.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="1725">
               <caret line="75" selection-start-line="75" selection-end-line="75" />
             </state>
           </provider>
@@ -115,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/javascript/components/JobTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="151" column="102" selection-start-line="151" selection-start-column="57" selection-end-line="151" selection-end-column="102" />
+            <state relative-caret-position="-2183">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -144,6 +145,8 @@
       <find>google</find>
       <find>icon.svg</find>
       <find>handleChange</find>
+      <find>setstat</find>
+      <find>statuso</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,13 +183,13 @@
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/javascript/components/MapContainer.jsx" />
-        <option value="$PROJECT_DIR$/app/javascript/components/JobTable.jsx" />
         <option value="$PROJECT_DIR$/app/javascript/components/Main.jsx" />
         <option value="$PROJECT_DIR$/app/javascript/components/JobForm.jsx" />
+        <option value="$PROJECT_DIR$/app/javascript/components/JobTable.jsx" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -263,8 +266,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,6 +389,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,9 +435,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.17453505" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49910232" visible="true" weight="0.17668097" />
       <window_info id="Structure" order="1" sideWeight="0.50089765" side_tool="true" weight="0.24606581" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50089765" side_tool="true" weight="0.24606581" />
@@ -615,20 +617,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180924031730_jobs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20180924032129_jobs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180924031730_jobs.rb" />
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180924032129_jobs.rb" />
     <entry file="file://$PROJECT_DIR$/db/migrate/20180924032704_add_new_column_to_jobs.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -640,13 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/MapContainer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -685,9 +668,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/MapContainer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" column="59" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/javascript/components/Main.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="1725">
           <caret line="75" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
@@ -699,17 +689,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/JobTable.jsx">
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/JobForm.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="151" column="102" selection-start-line="151" selection-start-column="57" selection-end-line="151" selection-end-column="102" />
+        <state relative-caret-position="162">
+          <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="88" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/javascript/components/JobForm.jsx">
+    <entry file="file://$PROJECT_DIR$/app/javascript/components/JobTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="71" column="45" selection-start-line="71" selection-start-column="45" selection-end-line="71" selection-end-column="45" />
+        <state relative-caret-position="-2183">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
