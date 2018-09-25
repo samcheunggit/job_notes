@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Progress } from 'reactstrap';
 import ReactTable from "react-table";
 import * as generalHelper from '../helpers/GeneralHelper.js';
 import { FaTimes } from 'react-icons/fa';
@@ -12,8 +12,8 @@ class JobTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-              jobs: this.props.jobsList
-        };
+              jobs: this.props.jobsList        };
+
         this.editableStatus = this.editableStatus.bind(this);
         this.saveStatus = this.saveStatus.bind(this);
       }
@@ -26,6 +26,7 @@ class JobTable extends React.Component {
     }
 
     deleteJob = (jobId, event) => {
+        this.setState({ loading: true });
         fetch(`/api/jobs/${jobId}`,
             {
               method: 'DELETE',
@@ -33,9 +34,13 @@ class JobTable extends React.Component {
                 'Content-Type': 'application/json'
               }
             }).then((response) => {
-                this.props.updateJobListFromDelete(true, "delete");
+                this.props.updateJobList(true, "delete");
                 this.toggleAlert("success", "Job is deleted successfully");
-              })
+              }).catch(error => {
+                console.log(error);
+                this.toggleAlert("error", "There is some problem when deleting job!");
+              });
+
             event.preventDefault();
         };
 
@@ -46,26 +51,39 @@ class JobTable extends React.Component {
         this.refs.notify.notificationAlert(options);
     }
 
-    saveStatus(){
-        console.log("save status called");
-    }
 
-    editableStatus(cellInfo) {
+     saveStatus = (jobId, event) => {
+        this.setState({ loading: true });
+      fetch(`/api/jobs/${jobId}`,
+          {
+            method: 'PUT',
+            body: JSON.stringify({status: event.target.value}),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then((response) => {
+              console.log("update successfully");
+              this.props.updateJobList(true, "update");
+              this.toggleAlert("success", "Job is updated successfully");
+            }).catch(error => {
+              console.log(error);
+              this.toggleAlert("error", "There is some problem when updating job!");
+            });
+      };
 
-//        this.setState({ editJobStatus: cellInfo.original.status, editJobId: cellInfo.original.id });
+    editableStatus = cellInfo => {
+
         const statusOptions = generalHelper.statusList.map((option) =>
             <option value={option.value} key={option.value + option.label}>{option.label}</option>,
         );
-
         return (
-            <Input type="select" name="status" id="editableStatus" value={cellInfo.original.status} onChange={this.saveStatus}>
-                                    {statusOptions}
-                                   </Input>
+            <Input type="select" name={"editableStatus"+cellInfo.original.id} id={"editableStatus"+cellInfo.original.id} value={cellInfo.original.status} onChange={(e) => this.saveStatus(cellInfo.original.id, e)}>
+                {statusOptions}
+            </Input>
         );
       }
 
     render() {
-
         return(
         <div>
             <NotificationAlert ref="notify" />
@@ -108,21 +126,7 @@ class JobTable extends React.Component {
                     {
                       Header: "Status",
                       accessor: "status",
-                      Cell: this.editableStatus
-                      /*Cell: row => (
-
-                            <span>
-                                <span style={{
-                                  color: row.value === 'reject' ? '#ff2e00'
-                                    : row.value === 'offer' ? '#57d500'
-                                    : '#ffbf00',
-                                  transition: 'all .3s ease'
-                                }}>
-                                  &#x25cf;
-                                </span>&nbsp;&nbsp;
-                                <label>{generalHelper.getStatusLabel(row.original.status)}</label>
-                            </span>
-                        ),*/,
+                      Cell: this.editableStatus,
                       Footer: () =>
                         <div style={{ textAlign: "center" }}>Status</div>
                     },

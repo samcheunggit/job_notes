@@ -76,7 +76,10 @@ class JobForm extends React.Component {
         }).then((response) => {return response.json()})
         .then((job)=>{
           this.props.updateJobListFromCreate(true, "create");
-        })
+        }).catch(error => {
+            console.log(error);
+            this.props.updateJobListFromCreate(false, "create");
+        });
 
         this.form && this.form.reset();
         this.resetField = true;

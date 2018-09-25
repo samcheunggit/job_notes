@@ -71,7 +71,7 @@ class Main extends React.Component {
                         <JobForm updateJobListFromCreate={this.checkAndUpdateJobList}/>
                     </Expand>
                     <br/>
-                    <JobTable jobsList={this.state.jobs} googleProps={this.googleProps} updateJobListFromDelete={this.checkAndUpdateJobList} />
+                    <JobTable jobsList={this.state.jobs} googleProps={this.googleProps} updateJobList={this.checkAndUpdateJobList} />
                     <br/>
             </div>
         )
