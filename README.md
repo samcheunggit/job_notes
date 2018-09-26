@@ -1,6 +1,8 @@
 # Job Notes Application
 
-Job notes app helps organising large amount of job applied.
+https://jobnotesapp.herokuapp.com/
+
+Job notes app helps organising large amount of job applied, and integrated with Google autocomplete address for the company address and Google map api to mark the address on embedded map.
 
 # Stack
 React
